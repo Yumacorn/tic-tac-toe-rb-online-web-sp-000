@@ -47,7 +47,10 @@ def valid_move?(board, index)
 end
 
 def turn(board)
+<<<<<<< HEAD
   display_board(board)
+=======
+>>>>>>> 45e887585ac959861de1be4e1f3abcf3b03a1bec
   current_player = current_player(board)
   puts "Current Player: #{current_player}"
   puts "Please choose your next move: Spaces 1-9"
@@ -55,7 +58,10 @@ def turn(board)
   space = input_to_index(gets.strip)
   if valid_move?(board, space)
     move(board, space, current_player)
+<<<<<<< HEAD
     puts "\n\n"
+=======
+>>>>>>> 45e887585ac959861de1be4e1f3abcf3b03a1bec
     # hard coded to enter X each turn
   else
     puts "Invalid selection, please try again./n"
@@ -148,4 +154,23 @@ def play(board)
     puts "The winner is Player #{winner(board)}!"
     puts "Congratulations #{winner(board)}!"
   end
+end
+
+def won?(board)
+  #return true if win combo
+  #return false if no win combo
+  is_won = false
+  WIN_COMBINATIONS.each do |combo|
+    position_1 = board[combo[0]]
+    position_2 = board[combo[1]]
+    position_3 = board[combo[2]]
+    if position_1 == "X" && position_2 == "X" && position_3 == "X"
+      winner = true
+    else position_1 == "O" && position_2 == "O" && position_3 == "O"
+      winner = true
+    end
+    binding.pry
+
+  end
+  is_won
 end
